@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Shell_collectionview.MainShell"
+       xmlns:local="clr-namespace:Shell_collectionview"
+       FlyoutHeaderBehavior="CollapseOnScroll"
+       Title="ShellCollectionView">
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid HeightRequest="200">
+                <Image Source="mty.jpg" Aspect="AspectFill"/>
+                <Image Source="userimage.png" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="60" WidthRequest="60"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <!--<Shell.MenuItems>-->
+        <MenuItem Command="{Binding ProductTypeCommand}" CommandParameter="1" Text="Item 1"/>
+        <MenuItem Command="{Binding ProductTypeCommand}" CommandParameter="2" Text="Item 2"/>
+    <!--</Shell.MenuItems>-->
+    <ShellItem FlyoutIcon="bars" Title="Home">
+        <ShellSection Title="Home Page">
+            <ShellContent Title="Home Page">
+                <local:HomePage/>
+            </ShellContent>
+            
+        </ShellSection>
+    </ShellItem>
+    <ShellContent Title="Settings" ContentTemplate="{DataTemplate local:HomePage}"/>
+</Shell>

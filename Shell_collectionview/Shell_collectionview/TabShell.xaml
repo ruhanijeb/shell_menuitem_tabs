@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell
+    x:Name="theShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Shell_collectionview.TabShell"
+    xmlns:local="clr-namespace:Shell_collectionview;assembly=Shell_collectionview"
+    xmlns:vm="clr-namespace:Shell_collectionview.ViewModels;assembly=Shell_collectionview"
+    Navigating="Handle_Navigating">
+    <Shell.BindingContext>
+        <vm:TabsShellViewModel/>
+    </Shell.BindingContext>
+    <!--<Shell.MenuItems>-->
+        <MenuItem BindingContext="{x:Reference theShell}" Text="Go To Page 1" CommandParameter="COMMAND1" Command="{Binding BindingContext.NavigateCommand}"/>
+    <!--</Shell.MenuItems>-->
+    <ShellItem Route="tabs" FlyoutIcon="dashboard" Title="Home">
+        <ShellSection Icon="news" Title="News">
+            <ShellContent Title="Technology">
+                <local:HomePage Title="Technology"/>
+            </ShellContent>
+            <ShellContent Title="Sports">
+                <local:HomePage Title="Sports"/>
+            </ShellContent>
+        </ShellSection>
+        <ShellSection Route="favorites" Icon="favorites" Title="Favorites">
+            <ShellContent Route="myfavorites">
+                <local:HomePage Title="My Favorites"/>
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
+</Shell>
